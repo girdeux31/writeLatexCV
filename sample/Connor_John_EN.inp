@@ -1,0 +1,371 @@
+
+% This file is the input for MATLAB function wirteLatexCV.
+% It is a fake CV for fake character John Connor
+% It's only purpose is to show the input format
+% Author: Carles Mesado
+% Date: 08/12/2019
+
+%%%%%%%%%%%%%%%
+% My Shortcuts 
+%%%%%%%%%%%%%%%  
+  
+  #ALIASES                                                   %'#' is used for new cards
+
+$me    = J. Connor                                           %define your own aliases with '$'                                                            
+$mom   = S. Connor
+$IGC   = International Geek Conference
+$locSF = San Francisco, USA
+$USF   = University of San Francisco
+$CSC   = Cyberdyne Systems Corporation
+
+%%%%%%%%%%%%%%%
+% General data
+%%%%%%%%%%%%%%%
+
+  #PERSONAL
+
+Connor                                                       %surname
+John                                                         %name
+12345678-X                                                   %DNI
+Feb 28th, 1985                                               %date of birth, th is superscript
++1 222 333 4444                                              %telephone
+666 Freedom Av                                               %address 
+$locSF                                                       %city, use of alias
+94102                                                        %postal code
+
+  #COMPANY
+
+$CSC                                                         %company
+3475 Portage Rd, Niagara Falls                               %address
+Robotics Department                                          %department
+Senior Developer                                             %position
++1 666 666 6666                                              %telephone
+jconnor@cyberdyne.com                                        %e-mail
+
+  #BACKGROUNDS
+
+Master in Computer Science                                   %title
+$USF                                                         %university
+2010                                                         %year
++
+Bachelor's Degree in Computer Science
+$USF
+2008
+
+%%%%%%%%%%%%%%%
+% Research
+%%%%%%%%%%%%%%%
+
+  #PROJECTS
+
+Build your own Terminator                                    %title
+$CSC                                                         %financial entity
+Kyle Reese                                                   %main researcher
+01/01/2010                                                   %starting date
+01/01/2014                                                   %ending date
+999.999                                                      %financial support
+6                                                            %number of researchers
++
+Build your own Terminator                                    %title
+$CSC                                                         %financial entity
+Kyle Reese                                                   %main researcher
+01/01/2010                                                   %starting date
+01/01/2014                                                   %ending date
+999.999                                                      %financial support
+6                                                            %number of researchers
+
+  #PAPERS
+
+$me, $mom, A. Schwarzenegger, Kyle Reese                     %list of authors, more aliases
+Computer code for liquid metal applications in terminators   %title
+http://www.skynet.com/doi/10.1037/a1028240                   %link
+Journal of Cool Materials                                    %journal
+Skynet Editorial                                             %publisher or editor
+DOI /10.1037/a1028240                                        %reference
+Author                                                       %contribution
+54                                                           %volume
+908 - 919                                                    %pages of contribution
+1997                                                         %year
++
+$me, $mom, A. Schwarzenegger, Kyle Reese                     %list of authors, more aliases
+Computer code for liquid metal applications in terminators   %title
+http://www.skynet.com/doi/10.1037/a1028240                   %link
+Journal of Cool Materials                                    %journal
+Skynet Editorial                                             %publisher or editor
+DOI /10.1037/a1028240                                        %reference
+Author                                                       %contribution
+54                                                           %volume
+908 - 919                                                    %pages of contribution
+1997                                                         %year
++
+$me, $mom, A. Schwarzenegger, Kyle Reese                     %list of authors, more aliases
+Computer code for liquid metal applications in terminators   %title
+http://www.skynet.com/doi/10.1037/a1028240                   %link
+Journal of Cool Materials                                    %journal
+Skynet Editorial                                             %publisher or editor
+DOI /10.1037/a1028240                                        %reference
+Author                                                       %contribution
+54                                                           %volume
+908 - 919                                                    %pages of contribution
+1997                                                         %year
+
+  #BOOKS
+
+$me, $mom
+The ultimate book to teach your terminator
+http://www.skynet.com/books/#311
+Editorial at $CSC
+Manual
+Author
+240
+2017
+
+  #INTERNATIONAL_CONFERENCES                                 %cards in plural can have more than one item                                                    
+
+$me, $mom                                                    %list of authors
+Methodology for programming a Terminator                     %title
+$IGC                                                         %conference
+http://www.geekconference.com                                %conference link
+$locSF                                                       %location
+ISSN 9999-9999                                               %reference
+Oral presentation                                            %contribution
+12                                                           %pages
+August 29, 1997                                              %date
++                                                            %use '+' to separate items in card
+$me, $mom, A. Schwarzenegger                                 %list of authors
+Terminator comparison: T800 vs T1000                         %title
+$IGC                                                         %conference
+http://www.geekconference.com                                %conference link
+$locSF                                                       %location
+###                                                          %reference, information unknown or does not exist
+Poster                                                       %contribution
+10                                                           %pages
+August 29, 1998                                              %date
+
+  #NATIONAL_CONFERENCES                                      %cards in plural can have more than one item                                                    
+
+$me, $mom                                                    %list of authors
+Methodology for programming a Terminator                     %title
+$IGC                                                         %conference
+http://www.geekconference.com                                %conference link
+$locSF                                                       %location
+ISSN 9999-9999                                               %reference
+Oral presentation                                            %contribution
+12                                                           %pages
+August 29, 1997                                              %date
++                                                            %use '+' to separate items in card
+$me, $mom, A. Schwarzenegger                                 %list of authors
+Terminator comparison: T800 vs T1000                         %title
+$IGC                                                         %conference
+http://www.geekconference.com                                %conference link
+$locSF                                                       %location
+###                                                          %reference, information unknown or does not exist
+Poster                                                       %contribution
+10                                                           %pages
+August 29, 1998                                              %date
+
+  #PATENTS
+  
+$me, $mom                                                    %list of authors
+Thermal vision device for terminators                        %title
+New thermal vision device with ultimate algorithm            %description
+9999999                                                      %number
+August 29, 1998                                              %concession date
+International                                                %type
+
+  #COLLABORATIONS
+
+09/2007                                                      %starting date
+09/2009                                                      %ending date
+Multiphase Fluid Group                                       %group
+Mechanical Engineering                                       %department
+$USF                                                         %university
+
+  #INTERNSHIPS
+
+12/2000                                                      %starting date
+06/2001                                                      %ending date
+$USF                                                         %university
+$locSF                                                       %location
+Code developed for programming a T1000                       %description
+Dr. Kyle Reese                                               %supervisor
++
+12/2000                                                      %starting date
+06/2001                                                      %ending date
+$USF                                                         %university
+$locSF                                                       %location
+Code developed for programming a T1000                       %description
+Dr. Kyle Reese                                               %supervisor
+
+  #SCHOLARSHIPS
+
+Travel in time scholarships                                  %title
+PhD financial support for research                           %description
+10000                                                        %financial support
+6                                                            %months
+Canada                                                       %destination
+2014                                                         %year
+
+    #CODES
+    
+libt1000.so                                                  %short name
+Library for your T1000                                       %long name
+Teach your T1000 to kill and say "No Problemo"               %description
+http://www.skynet.com/libraries/#123                         %link
+
+%%%%%%%%%%%%%%%
+% Teaching 
+%%%%%%%%%%%%%%%
+
+  #COURSES
+
+Fictitious subject: how to cook in the desert, code N806     %subject
+Cooking department and engineering                           %department
+$USF                                                         %university
+Bachelor                                                     %plan
+Optional                                                     %type
+1st                                                          %grade
+60                                                           %hours
++
+Fictitious subject: how to cook in the desert, code N806     %subject
+Cooking department and engineering                           %department
+$USF                                                         %university
+Bachelor                                                     %plan
+Optional                                                     %type
+1st                                                          %grade
+60                                                           %hours
+
+  #GIVEN_COURSES
+
+Fictitious short course                                      %title
+$USF                                                         %university / institute
+6                                                            %hours
+04/13/2018                                                   %date
+
+  #GIVEN_SEMINARS
+
+Fictitious seminar                                           %title
+$USF                                                         %university / institute
+6                                                            %hours
+04/13/2018                                                   %date
+
+  #GIVEN_WORKSHOPS
+
+Fictitious workshop                                          %title
+$USF                                                         %university / institute
+6                                                            %hours
+04/13/2018                                                   %date
++
+Fictitious workshop II                                       %title
+$USF                                                         %university / institute
+6                                                            %hours
+04/13/2018                                                   %date
+
+  #MATERIALS
+
+Use of FORTRAN to program Skynet                             %title
+Skynet Editorial                                             %publisher or editor
+S-111-2013                                                   %reference
+2013                                                         %year
++
+Use of C++ to program Skynet                                 %title
+Skynet Editorial                                             %publisher or editor
+S-111-2012                                                   %reference
+2012                                                         %year
+
+%%%%%%%%%%%%%%%
+% Employment
+%%%%%%%%%%%%%%%
+
+  #JOBS
+
+10/20/2016                                                   %starting date
+Present                                                      %ending date
+$CSC                                                         %company
+Development of technical procedure for the resistance        %description
++
+04/21/2010                                                   %starting date
+01/01/2016                                                   %ending date
+$CSC                                                         %company
+Apprentice                                                   %description
+
+%%%%%%%%%%%%%%%
+% Other
+%%%%%%%%%%%%%%%
+
+  #LANGUAGES
+
+Spanish                                                      %language
+B1                                                           %listening
+B1                                                           %speaking
+A2                                                           %writing
+
+  #LANGUAGE_TITLES
+
+Spanish intermediate II                                      %title
+Sancho Panza Institute                                       %entity
+2014                                                         %year
+
+  #RECEIVED_COURSES
+
+Fictitious short course                                      %title
+$USF                                                         %university / institute
+6                                                            %hours
+04/13/2018                                                   %date
++
+Fictitious short course II                                   %title
+$USF                                                         %university / institute
+6                                                            %hours
+04/13/2018                                                   %date
+
+  #RECEIVED_SEMINARS
+
+Fictitious seminar                                           %title
+$USF                                                         %university / institute
+6                                                            %hours
+04/13/2018                                                   %date
+
+  #RECEIVED_WORKSHOPS
+
+Fictitious workshop                                          %title
+$USF                                                         %university / institute
+6                                                            %hours
+04/13/2018                                                   %date
+
+  #LANGUAGE_COURSES
+
+Spanish Intermediate                                         %title
+$USF                                                         %university / institute
+$locSF                                                       %location
+2014                                                         %year
++
+Spanish for Beginners                                        %title
+$USF                                                         %university / institute
+$locSF                                                       %location
+2013                                                         %year
+
+  #GENERAL_APPS
+
+Unix and Windows, user level                                 %software
++
+Microsoft Office, LaTeX
+
+  #DEVELOPER_APPS
+
+Python                                                       %software
++
+FORTRAN
++
+MATLAB R-2017
++
+Visual Basic Applications
++
+C/C++/C#
+
+  #SPECIFIC_APPS
+                                   
+SkynetProgram                                                %software
+Thermal-hydraulic Code                                       %description
++
+ConnorProgram                                                %software
+Mechanical and Structural Code                               %description
