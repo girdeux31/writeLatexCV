@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                     %
-%     writeLatexCV  02/12/2019                                        %
+%     writeLatexCV  09/12/2019                                        %
 %                                                                     %
 % File name:        texFormat_utf8.m                                  %
 % File type:        Function                                          %
 % File description: Specific symbols in utf8 encode                   %
-% File version:     1.1.0                                             %
+% File version:     1.1.1                                             %
 %                                                                     %
 % Author: Carles Mesado                                               %
 % E-mail: mesado31@gmail.com                                          %

@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                     %
-%     writeLatexCV  02/12/2019                                        %
+%     writeLatexCV  09/12/2019                                        %
 %                                                                     %
 % File name:        texFormat_win1252.m                               %
 % File type:        Function                                          %
 % File description: Specific symbols in windows-1252 encode           %
-% File version:     1.1.0                                             %
+% File version:     1.1.1                                             %
 %                                                                     %
 % Author: Carles Mesado                                               %
 % E-mail: mesado31@gmail.com                                          %
@@ -68,10 +68,10 @@ function text = texFormat_win1252(text)
     text = strrep(text, '$', '\textdollar ');
     text = strrep(text, '£', '\textsterling ');
     text = strrep(text, '¥', '\textyen ');
-    %marvosym symbols not used under windowsOS
-    %at symbol can be written jast as @, but the default latex symbol is ugly
-    text = strrep(text,'€', '\texteuro '); %uglier than \EURdig
-    text = strrep(text, 'ß', '\ss '); %just in case German is used
+    %marvosym sylmbols
+    text = strrep(text, '@', '\MVAt ');
+    text = strrep(text, '€', '\EURdig ');
+    text = strrep(text, 'ß', '\Shilling '); %just in case German is used
     %mathmode
     text = strrep(text, '·', '$\cdot$'); %must be after the $ change
     %special vowels

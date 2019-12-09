@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                     %
-%     writeLatexCV  02/12/2019                                        %
+%     writeLatexCV  09/12/2019                                        %
 %                                                                     %
 % File name:        libLatexCV.m                                      %
 % File type:        Library                                           %
 % File description: Library needed by writeLatexCV                    %
-% File version:     1.1.0                                             %
+% File version:     1.1.1                                             %
 %                                                                     %
 % Author: Carles Mesado                                               %
 % E-mail: mesado31@gmail.com                                          %
@@ -135,10 +135,10 @@ function args = getInputArguments(varArg)
                 case 'currency'
                     args.currency = lower(value);
                     if ~strcmp(args.currency, 'eur') && ~strcmp(args.currency, 'usd') && ~strcmp(args.currency, 'gbp') && ~strcmp(args.currency, 'jpy')
-                        curOpt{1}='''EUR'' for euros (€, defualt)';
-                        curOpt{2}='''USD'' for dollars ($)';
-                        curOpt{3}='''GBP'' for pounds (£)';
-                        curOpt{4}='''JPY'' for yens (¥)';
+                        curOpt{1}='''EUR'' for euros (default)';
+                        curOpt{2}='''USD'' for dollars';
+                        curOpt{3}='''GBP'' for pounds';
+                        curOpt{4}='''JPY'' for yens';
                         terminateProg('libLatexCV::getInputArguments::currencyNotRecognized', horzcat('Option ''', value, ''' for input argument ''', parameter, ''' is not recognized, only the following options are accepted:'), curOpt)
                     end
                 case 'font_size'
@@ -800,15 +800,17 @@ function writePreamble(fid, lan, cv)
     fprintf(fid, '%s\n', '\usepackage{extsizes}');                                                                %extra font sizes
     fprintf(fid, '%s\n', '\usepackage{multicol}');                                                                %play with columns in tables (marge cells)
     fprintf(fid, '%s\n', '\usepackage{multirow}');                                                                %same with rows
-    fprintf(fid, '%s\n', '\usepackage{array}');                                                                   %something with new column type
+    if ~isunix
+		fprintf(fid, '%s\n', '\usepackage{array}[=2016-10-06]');                                                  %fix vertical alignment in cells Windows/macOS MiKTeX/MacTeX
+	else
+		fprintf(fid, '%s\n', '\usepackage{array}');                                                               %define new column type
+	end
     fprintf(fid, '%s\n', '\usepackage{longtable}');                                                               %table spans multiple pages
     fprintf(fid, '%s\n', '\usepackage{hhline}');                                                                  %fix bug: black lines over colored cells
     fprintf(fid, '%s\n', '\usepackage[english]{babel}');                                                          %language commands
     fprintf(fid, '%s\n', '\usepackage[table]{xcolor}');                                                           %color in tables
     fprintf(fid, '%s\n', '\usepackage{lastpage}');                                                                %to get # of pages
-    if ~ispc                                                                                                      %some problems were found with marvosym under windows
-        fprintf(fid, '%s\n', '\usepackage{marvosym}');                                                            %to get euro, beta and at symbols
-    end
+    fprintf(fid, '%s\n', '\usepackage{marvosym}');                                                                %to get euro, beta and at symbols
     fprintf(fid, '%s\n', '\usepackage{textcomp}');                                                                %to get yen and dollar symbols
     fprintf(fid, '%s\n', '\usepackage{fancyhdr}');                                                                %to modify default header
     fprintf(fid, '%s%.3f%s%.3f%s\n', '\usepackage[vmargin=', vmargin, 'cm,hmargin=', hmargin, 'cm]{geometry}');   %margins
@@ -1032,11 +1034,11 @@ function writeTableResearch(fid, lan, tab, ntab)
             if strcmp(args.language, 'en')
                 fprintf(fid, '\t\t%-150s & %-150s & \\\\[%.2fcm]\n',...
                         horzcat('\textbf{', lan.sdate,   ':} ',  texFormat(tab(i).sdate)),...
-                        horzcat('\textbf{', lan.amount,  ':} ',  texFormat(lan.currency),            texFormat(tab(i).amount)),	stdRowHeight);
+                        horzcat('\textbf{', lan.amount,  ':} ',  lan.currency,            texFormat(tab(i).amount)),	stdRowHeight);
             else
                 fprintf(fid, '\t\t%-150s & %-150s & \\\\[%.2fcm]\n',...
                     	horzcat('\textbf{', lan.sdate,   ':} ',  texFormat(tab(i).sdate)),...
-                        horzcat('\textbf{', lan.amount,  ':} ',  texFormat(tab(i).amount),   '~',    texFormat(lan.currency)),	stdRowHeight);
+                        horzcat('\textbf{', lan.amount,  ':} ',  texFormat(tab(i).amount),   '~',    lan.currency),	stdRowHeight);
             end
 			fprintf(fid, '\t\t%-150s & %-150s & \\\\[%.2fcm]\n',...
 					horzcat('\textbf{', lan.edate,   ':} ',	texFormat(tab(i).edate)),...
@@ -1303,10 +1305,10 @@ function writeTableResearch(fid, lan, tab, ntab)
                     texFormat(tab(i).title));
             if strcmp(args.language, 'en')
                 fprintf(fid, '\t\t%-60s & %-240s & \\\\\n',...
-                        '',	horzcat(texFormat(tab(i).description), ', ', texFormat(lan.currency),     texFormat(tab(i).amount), ', ', texFormat(tab(i).duration), ' ', lan.mth, ' ', lan.in, ' ', texFormat(tab(i).location)));
+                        '',	horzcat(texFormat(tab(i).description), ', ', lan.currency,     texFormat(tab(i).amount), ', ', texFormat(tab(i).duration), ' ', lan.mth, ' ', lan.in, ' ', texFormat(tab(i).location)));
             else
                 fprintf(fid, '\t\t%-60s & %-240s & \\\\\n',...
-                        '',	horzcat(texFormat(tab(i).description), ', ', texFormat(tab(i).amount), '~', texFormat(lan.currency), ', ', texFormat(tab(i).duration), ' ', lan.mth, ' ', lan.in, ' ', texFormat(tab(i).location)));
+                        '',	horzcat(texFormat(tab(i).description), ', ', texFormat(tab(i).amount), '~', lan.currency, ', ', texFormat(tab(i).duration), ' ', lan.mth, ' ', lan.in, ' ', texFormat(tab(i).location)));
             end
 			% set a very narrow last row
 			fprintf(fid, '\t\t%60s & %240s & \\\\[%.2fcm]\n', '', '', smallRowHeight);
@@ -1823,13 +1825,13 @@ function lan = loadLanguage(args)
     %currency is independent of language
     switch args.currency
         case 'eur'
-            lan.currency = '€';
+            lan.currency = '\EURdig ';
         case 'usd'
-            lan.currency = '$';
+            lan.currency = '\textdollar ';
         case 'gbp'
-            lan.currency = '£';
+            lan.currency = '\textsterling ';
         case 'jpy'
-            lan.currency = '¥';
+            lan.currency = '\textyen ';
     end
 	% load all text in language specified by lang
 	%please, write all language text following latex and matlab rules (lan.* is not passed through texFormat function due to different encoding among OS)
@@ -1900,7 +1902,7 @@ function lan = loadLanguage(args)
 			%Current situation
 			lan.employer	= 'Empresa';
 			lan.department	= 'Departamento';
-			lan.job			= 'Puesto';
+			lan.job			= 'Cargo';
 			lan.email		= 'Correo electr\''onico';
 			%Academic background
 			lan.title		= 'T\''itulo';
@@ -2008,7 +2010,7 @@ function lan = loadLanguage(args)
 			%Current situation
 			lan.employer	= 'Empresa';
 			lan.department	= 'Departament';
-			lan.job			= 'Lloc';
+			lan.job			= 'C\`arrec';
 			lan.email		= 'Correu electr\`onic';
 			%Academic background
 			lan.title		= 'T\''itol';
@@ -2183,17 +2185,13 @@ end
 function checkPdfLatex()
     if ispc
         [flag, sysOut] = system('where pdflatex');
-        if flag %1 if not found, 0 otherwise
-            disp(sysOut)
-            terminateProg('libLatexCV::checkPdfLatex::commandNotFound', 'Command pdflatex is not found, see the output above. You can obtain pdfLatex with MiKTeX for example')
-        end
-    else
-        [flag, sysOut] = system('which pdflatex');
-        if flag %1 if not found, 0 otherwise
-            disp(sysOut)
-            terminateProg('libLatexCV::checkPdfLatex::commandNotFound', 'Command pdflatex is not found, see the output above. You can obtain pdfLatex using your distro official repository')
-        end
-    end
+	else
+		[flag, sysOut] = system('which pdflatex');
+	end
+	if flag %1 if not found, 0 otherwise
+		disp(sysOut)
+		terminateProg('libLatexCV::checkPdfLatex::commandNotFound', 'Command pdflatex is not found, see the output above. You can obtain pdfLatex with MiKTeX (Windows), MacTeX (macOS) or your official distro repository (Unix)')
+	end
 end
 
 function runPdfLatex(args)

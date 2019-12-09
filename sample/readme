@@ -1,0 +1,12 @@
+
+How to reproduce the sample file Connor_John_EN.pdf
+
+  1. Open MATLAB
+
+  2. Change directory to the matlab folder in writeLatexCV
+
+  3. Run the following command in MATLAB
+ 
+      writeLatexCV('input = ../sample/Connor_John_EN.inp', 'output = ../sample/Connor_John_EN', 'language = EN', 'currency = USD', 'font_size = 11', 'blue_links = true', 'us_date = true', 'us_paper = true')
+
+  4. Done

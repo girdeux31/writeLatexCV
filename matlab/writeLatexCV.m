@@ -1,12 +1,12 @@
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                                                                     %
-% %     writeLatexCV  02/12/2019                                        %
+% %     writeLatexCV  09/12/2019                                        %
 % %                                                                     %
 % % File name:        writeLatexCV.m                                    %
 % % File type:        Function                                          %
 % % File description: Write CV files in PDF format                      %
-% % File version:     1.1.0                                             %
+% % File version:     1.1.1                                             %
 % %                                                                     %
 % % Author: Carles Mesado                                               %
 % % E-mail: mesado31@gmail.com                                          %
@@ -76,7 +76,7 @@ function writeLatexCV(varargin)
     
     %app variables
     appName    = 'writeLatexCV'; %app name
-    appVersion = 'v1.1.0';       %app version
+    appVersion = 'v1.1.1';       %app version
 
     %latex parameters
     vmargin             = 3.0;       %vertical margins (cm)
